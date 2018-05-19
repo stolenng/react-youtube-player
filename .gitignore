@@ -1,0 +1,15 @@
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+ehthumbs.db
+Icon?
+Thumbs.db
+
+# Build
+build
+
+
+# Dependency directory
+node_modules

@@ -1,0 +1,124 @@
+/* Global */
+
+.app {
+    padding: 25px;
+}
+
+body {
+    background: #3D7EAA;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FFE47A, #3D7EAA);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FFE47A, #3D7EAA);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+/* Video-Container */
+
+.video-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.video-container-item:fisrt-child {
+    flex-basis: 20%
+}
+
+.video-container-item:last-child {
+    flex-basis: 80%;
+}
+
+.video-container::after {
+    content: '';
+    flex: auto;
+}
+
+/* Video-Input */
+
+.video-input .input {
+    width: 400px;
+    height: 45px;
+    background: #F2F2F2;
+    border: 1px solid #CCCCCC;
+    border-radius: 10px;
+    outline: none;
+    font-size: 15px;
+    color: #000;
+    letter-spacing: 2px;
+    text-indent: 15px;
+}
+
+.video-input .button {
+    background: #F2F2F2;
+    border-radius: 10px;
+    padding: 10px 60px;
+    color: #000;
+    text-decoration: none;
+    font-size: 1.45em;
+    margin-left: 15px;
+}
+
+.video-input .input.error {
+    border: 1px solid red;
+}
+
+.video-input form {
+    display: flex;
+    align-items: stretch;
+}
+
+/* Videos List */
+
+.videos-list {
+    margin-top: 25px;
+    overflow-y: scroll;
+    max-height: 550px;
+}
+
+.videos-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.videos-list ul li {
+    position: relative;
+    padding: 15px;    
+}
+
+.videos-list ul li:hover {
+    background-color: #42323238;
+}
+
+.videos-list ul li span {
+    display: block;
+}
+
+.videos-list ul li img {
+    float: left;
+    margin: 0 15px 0 0;
+}
+
+.videos-list ul li button.fa-close {
+    padding: 25px;
+    float: right;
+    font-size: 27px;
+    position: absolute;
+    right: 0;
+    top:5px;
+    background: none;
+    border: none;
+}
+.videos-list ul li button.fa-close:hover {
+    cursor: pointer;
+}    
+
+/* Video Player */
+
+.videos-player {
+    margin-left: 100px;
+}
+
+.video-empty iframe {
+    display: none;
+}
