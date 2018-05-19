@@ -6,6 +6,7 @@ import VideoList from '../VideoList/VideoList';
 
 import Video from '../../models/Video';
 import IVideo from '../../models/IVideo';
+import IDropResult from './IDropResult';
 
 import YoutubeService from '../../services/youtube.service';
 
@@ -60,7 +61,7 @@ export default class VideoContainer extends React.Component<any, State> {
         this.setState({ videos: videos });
     }
 
-    onDrop = (item) => {
+    onDrop = (item: IDropResult) => {
         const newIndex = item.addedIndex;
         const prevIndex = item.removedIndex;
         const currentVideo = this.state.videos[prevIndex];
