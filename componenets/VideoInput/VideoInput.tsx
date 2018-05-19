@@ -17,13 +17,13 @@ export default class VideoInputComponent extends React.Component<IVideoInput, St
         super(props);
     }
 
-    handleChange(event: React.FormEvent<EventTarget>) {
+    handleChange = (event: React.FormEvent<EventTarget>) => {
         const target = event.target as HTMLInputElement;
 
         this.setState({value: target.value, class: '' });
     }
     
-    handleSubmit(event: React.FormEvent<EventTarget>) {
+    handleSubmit = (event: React.FormEvent<EventTarget>) => {
         event.preventDefault();
         
         if (this.validate(this.state.value) && this.extractId(this.state.value)) {
@@ -42,7 +42,7 @@ export default class VideoInputComponent extends React.Component<IVideoInput, St
     }
     
     validate(url: string): boolean {
-        if (!url || url.length === 0) {
+        if (!url) {
             return false;
         }
 
@@ -52,7 +52,7 @@ export default class VideoInputComponent extends React.Component<IVideoInput, St
     }
 
     getClass() : string {
-        if (this.state.value.length === 0) {
+        if (this.state.value) {
             return '';
         }
 
@@ -73,8 +73,8 @@ export default class VideoInputComponent extends React.Component<IVideoInput, St
     render() {
         return (
             <div className="video-input">
-                <form onSubmit={(event) => this.handleSubmit(event)}>
-                    <input className={`input ${this.state.class}`} type="text" onChange={event => this.handleChange(event)} value={this.state.value} placeholder="Insert valid youtube url"/>
+                <form onSubmit={this.handleSubmit}>
+                    <input className={`input ${this.state.class}`} type="text" onChange={this.handleChange} value={this.state.value} placeholder="Insert valid youtube url"/>
                     <button className="button" type="submit">Add</button>
                 </form>
             </div>

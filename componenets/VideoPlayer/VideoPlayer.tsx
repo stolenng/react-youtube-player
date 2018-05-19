@@ -30,7 +30,7 @@ export default class VideoInputComponent extends React.Component<IVideoPlayer, S
         return nextProps;
     }
 
-    onPlayerStateChange(event) {
+    onPlayerStateChange = (event) => {
         if (YT.PlayerState.ENDED === event.data) {
             this.props.onFinish();            
         }        
@@ -46,7 +46,7 @@ export default class VideoInputComponent extends React.Component<IVideoPlayer, S
                 <YouTube
                     videoId={this.state.id}
                     opts={this.opts}
-                    onStateChange={(event) => this.onPlayerStateChange(event)}
+                    onStateChange={this.onPlayerStateChange}
                 />          
             </div>
         );

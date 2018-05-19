@@ -22,17 +22,17 @@ export default class VideoContainer extends React.Component<any, State> {
         super(props);
     }
 
-    add(id) {
+    add = (id) => {
         if (this.ifExists(id)) {
             alert('Item Exists!');
 
            return;
         }
 
-        YoutubeService.get(id).then((res) => this.handleAdd(res));
+        YoutubeService.get(id).then(this.handleAdd);
     }
 
-    handleAdd(res: IVideo) {
+    handleAdd = (res: IVideo) => {
         const video = new Video(res.id, res.title, res.duration, res.thumbnail);
         
         let videos = this.state.videos;
@@ -43,18 +43,10 @@ export default class VideoContainer extends React.Component<any, State> {
     }
 
     ifExists(id: string) : boolean {
-        let flag = false;
-
-        this.state.videos.forEach((video) => {
-            if (video.id === id) {
-                flag = true;
-            }
-        });
-
-        return flag;
+        return this.state.videos.filter(video => video.id === id).length ? true : false;
     }
 
-    pop(position?) {
+    pop = (position? : number) => {
         let videos = this.state.videos;
         let current;
         
@@ -68,7 +60,7 @@ export default class VideoContainer extends React.Component<any, State> {
         this.setState({ videos: videos });
     }
 
-    onDrop(item) {
+    onDrop = (item) => {
         const newIndex = item.addedIndex;
         const prevIndex = item.removedIndex;
         const currentVideo = this.state.videos[prevIndex];
@@ -95,11 +87,11 @@ export default class VideoContainer extends React.Component<any, State> {
         return (
             <div className="video-container">
                 <div className="video-container-item">
-                    <VideoInput onSubmit={(id) => this.add(id)} />
-                    <VideoList onDrop={(item) => this.onDrop(item)} onRemove={(position) => this.pop(position)} videos={this.state.videos} />
+                    <VideoInput onSubmit={this.add} />
+                    <VideoList onDrop={this.onDrop} onRemove={this.pop} videos={this.state.videos} />
                 </div>
                 <div className="video-container-item">
-                    <VideoPlayer id={this.getCurrent()} onFinish={() => this.pop()} />
+                    <VideoPlayer id={this.getCurrent()} onFinish={this.pop} />
                 </div>
             </div>
         );
