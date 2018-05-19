@@ -18,7 +18,7 @@ export default class VideoInputComponent extends React.Component<IVideoList, Sta
         super(props);
     }
 
-    static getDerivedStateFromProps(nextProps, prevState): State {
+    static getDerivedStateFromProps(nextProps: State, prevStat: State): State {
         return nextProps;
     }
 
@@ -26,7 +26,7 @@ export default class VideoInputComponent extends React.Component<IVideoList, Sta
         return (
             <div className="videos-list">
                 <ul>
-                    <Container onDrop={(data) => this.props.onDrop(data)}>
+                    <Container onDrop={this.props.onDrop}>
                         {
                             this.state.videos.map((video, index) => {
                                 return (

@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VideoInput Init input Componenet 1`] = `
+<div
+  className="video-input"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <input
+      className="input "
+      onChange={[Function]}
+      placeholder="Insert valid youtube url"
+      type="text"
+      value=""
+    />
+    <button
+      className="button"
+      type="submit"
+    >
+      Add
+    </button>
+  </form>
+</div>
+`;

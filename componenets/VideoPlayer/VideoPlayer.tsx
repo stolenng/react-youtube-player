@@ -26,11 +26,11 @@ export default class VideoInputComponent extends React.Component<IVideoPlayer, S
         super(props);
     }
 
-    static getDerivedStateFromProps(nextProps, prevState): State {
+    static getDerivedStateFromProps(nextProps: State, prevState: State): State {
         return nextProps;
     }
 
-    onPlayerStateChange = (event) => {
+    onPlayerStateChange = (event: any) => {
         if (YT.PlayerState.ENDED === event.data) {
             this.props.onFinish();            
         }        

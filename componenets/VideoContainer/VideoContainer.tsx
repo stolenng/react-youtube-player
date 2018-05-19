@@ -23,7 +23,7 @@ export default class VideoContainer extends React.Component<any, State> {
         super(props);
     }
 
-    add = (id) => {
+    add = (id: string) => {
         if (this.ifExists(id)) {
             alert('Item Exists!');
 

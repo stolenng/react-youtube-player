@@ -1,8 +1,9 @@
 import axios from 'axios';
+import Video from '../models/Video';
 
 const API_KEY = 'AIzaSyCsbRE9QbDsptnRr4ETENN-DMpCeFfJPBs';
 
-const covtime = (youtube_time) => {
+const covtime = (youtube_time: string) => {
     let array = youtube_time.match(/(\d+)(?=[MHS])/ig) || [];
     let formatted = array.map(function (item) {
         if (item.length < 2) return '0' + item;
@@ -14,13 +15,13 @@ const covtime = (youtube_time) => {
 
 
 const YoutubeService = {
-    get(id: string) {
+    get(id: string) : Promise<Video> {
         return axios.get(`https://www.googleapis.com/youtube/v3/videos?id=${id}&key=${API_KEY}&part=contentDetails,snippet`).then(res => {
             if (res.status !== 200) {
                 throw new Error('Bad Api Response');
             }
 
-            return { id: id, title: res.data.items[0].snippet.title, duration: covtime(res.data.items[0].contentDetails.duration), thumbnail: res.data.items[0].snippet.thumbnails.default.url };
+            return new Video(id, res.data.items[0].snippet.title, covtime(res.data.items[0].contentDetails.duration), res.data.items[0].snippet.thumbnails.default.url);
         });
     }
 };
