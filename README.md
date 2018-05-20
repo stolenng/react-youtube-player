@@ -6,3 +6,7 @@ A Youtube automatic list player built with react :)
 
 - npm install
 - npm run dev
+
+
+# Tests:
+- npm test
