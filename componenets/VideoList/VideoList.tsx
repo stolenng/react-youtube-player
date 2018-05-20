@@ -9,7 +9,7 @@ type State = {
 };
 
 
-export default class VideoInputComponent extends React.Component<IVideoList, State> {
+export default class VideoList extends React.Component<IVideoList, State> {
     state: State = {
         videos: []
     };

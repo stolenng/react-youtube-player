@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VideoPlayer Init VideoPlayer Componenet 1`] = `
+<div
+  className="videos-player "
+>
+  <span
+    className=""
+  >
+    <div
+      className={null}
+      id={null}
+    />
+  </span>
+</div>
+`;

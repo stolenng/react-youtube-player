@@ -33,8 +33,8 @@ export default class VideoContainer extends React.Component<any, State> {
         YoutubeService.get(id).then(this.handleAdd);
     }
 
-    handleAdd = (res: IVideo) => {
-        const video = new Video(res.id, res.title, res.duration, res.thumbnail);
+    handleAdd = (res: Video) => {
+        const video: Video = res;
         
         let videos = this.state.videos;
 

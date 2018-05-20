@@ -7,7 +7,7 @@ type State = {
     class: string;
 };
 
-export default class VideoInputComponent extends React.Component<IVideoInput, State> {
+export default class VideoInput extends React.Component<IVideoInput, State> {
     state: State = {
         value: '',
         class: ''

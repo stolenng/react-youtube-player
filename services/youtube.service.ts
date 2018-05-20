@@ -5,8 +5,11 @@ const API_KEY = 'AIzaSyCsbRE9QbDsptnRr4ETENN-DMpCeFfJPBs';
 
 const covtime = (youtube_time: string) => {
     let array = youtube_time.match(/(\d+)(?=[MHS])/ig) || [];
-    let formatted = array.map(function (item) {
+
+    let formatted = array.map((item, index) => {
         if (item.length < 2) return '0' + item;
+        if (index === array.length-1) return parseInt(item) - 1;
+        
         return item;
     }).join(':');
     

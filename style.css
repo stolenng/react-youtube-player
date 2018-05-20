@@ -17,16 +17,13 @@ body {
 
 .video-container {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.video-container-item:fisrt-child {
-    flex-basis: 20%
-}
-
-.video-container-item:last-child {
-    flex-basis: 80%;
+.video-container > .video-container-item:first-child {
+    margin-right:100px;
 }
 
 .video-container::after {
@@ -120,8 +117,8 @@ body {
 /* Video Player */
 
 .videos-player {
-    margin-left: 100px;
-}
+/*     margin-left: 100px;
+ */}
 
 .video-empty iframe {
     display: none;

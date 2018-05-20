@@ -9,7 +9,7 @@ type State = {
 };
 
 
-export default class VideoInputComponent extends React.Component<IVideoPlayer, State> {
+export default class VideoPlayer extends React.Component<IVideoPlayer, State> {
     state: State = {
         id: ''
     };
@@ -20,6 +20,7 @@ export default class VideoInputComponent extends React.Component<IVideoPlayer, S
             autoplay: 1
         }
     };
+    playerStatus: any;
     player: YT.Player;
 
     constructor(props: IVideoPlayer) {
@@ -31,6 +32,9 @@ export default class VideoInputComponent extends React.Component<IVideoPlayer, S
     }
 
     onPlayerStateChange = (event: any) => {
+        //save player state for testing
+        this.playerStatus = event.data;
+
         if (YT.PlayerState.ENDED === event.data) {
             this.props.onFinish();            
         }        
